@@ -1,0 +1,42 @@
+networks:
+  app_network:
+    driver: bridge 
+
+
+services:
+  ingestion_service:
+    container_name: data_ingestion_service
+    env_file:
+      - .env
+    build:
+      context: ./src/ingestion
+      dockerfile: ing.Dockerfile
+    networks:
+      - app_network
+    depends_on:
+      data_center:
+        condition: service_healthy
+
+  data_center:
+    image: postgres:17
+    container_name: data_center_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: fin_data_db
+    healthcheck:
+      test: pg_isready -U admin -d fin_data_db
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
