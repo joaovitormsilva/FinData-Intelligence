@@ -1,0 +1,7 @@
+{"timestamp":"2026-02-23T21:42:12.688262","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2026-02-23T21:42:12.689802","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/test_dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2026-02-23T21:42:14.560683","level":"info","event":"Conexão bem-sucedida ao banco de dados PostgreSQL!","logger":"root"}
+{"timestamp":"2026-02-23T21:42:14.562615","level":"error","event":"Erro ao executar consulta: (psycopg2.errors.UndefinedTable) relation \"precos_historicos_ativos_crypto\" does not exist\nLINE 1: SELECT * FROM precos_historicos_ativos_crypto\n                      ^\n\n[SQL: SELECT * FROM precos_historicos_ativos_crypto]\n(Background on this error at: https://sqlalche.me/e/14/f405)","logger":"root"}
+{"timestamp":"2026-02-23T21:42:14.562851","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}
+{"timestamp":"2026-02-23T21:42:14.564271Z","level":"info","event":"Tabela no banco:","chan":"stdout","logger":"task"}
+{"timestamp":"2026-02-23T21:42:14.564708Z","level":"info","event":"None","chan":"stdout","logger":"task"}
