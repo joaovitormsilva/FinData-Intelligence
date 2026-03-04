@@ -1,0 +1,7 @@
+requests
+pandas
+IPython
+sqlalchemy
+psycopg2-binary
+dbt-core==1.11.6
+dbt-postgres==1.10.0

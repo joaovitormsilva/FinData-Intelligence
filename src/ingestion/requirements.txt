@@ -1,6 +1,0 @@
-psycopg == 3.3
-requests
-pandas
-IPython
-sqlalchemy
-psycopg2-binary

@@ -1,0 +1,12 @@
+financas:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DBT_POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT', '5432') | int }}"
+      user: "{{ env_var('DBT_POSTGRES_USER', 'admin') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD', 'admin') }}"
+      dbname: "{{ env_var('DBT_POSTGRES_DB', 'fin_data_db') }}"
+      schema: "{{ env_var('DBT_POSTGRES_SCHEMA', 'dbt') }}"
+      threads: 4
