@@ -1,0 +1,38 @@
+"""
+DAG: dbt_pipeline
+Runs dbt seed → run → test via BashOperator.
+"""
+
+from datetime import datetime, timedelta
+from airflow.decorators import dag, task
+from airflow.operators.bash import BashOperator
+
+DBT_DIR = "/opt/dbt"
+DBT_BIN = "/home/airflow/.local/bin/dbt"
+
+default_args = {
+    "owner": "data-team",
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
+}
+
+
+
+@dag(
+    dag_id="dbt_pipeline",
+    schedule="@daily",
+    start_date=datetime(2024, 1, 1),
+    catchup=False,
+    default_args=default_args,
+    tags=["dbt", "financas"],
+)
+def dbt_pipeline():
+    
+    model = 'g_cast'
+    bsh_cmd = f'cd /opt/dbt && dbt run --project-dir {DBT_DIR} --profiles-dir {DBT_DIR}'
+    task1 = BashOperator(
+        task_id='test_model',
+        bash_command=bsh_cmd
+    )
+ 
+dbt_pipeline()

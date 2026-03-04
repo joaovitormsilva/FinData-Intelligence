@@ -1,0 +1,6 @@
+sources:
+  - name: bronze_precos_historicos_ativos_crypto
+    database: fin_data_db
+    schema: bronze
+    tables:
+      - name: precos_historicos_ativos_crypto
