@@ -2,8 +2,13 @@ db_password.txt
 
 docs/*
 
+airflow/logs
+dbt/logs
 
 .env
+
 airflow/config/airflow.cfg
 dbt/target
 dbt/.user.yml
+
+

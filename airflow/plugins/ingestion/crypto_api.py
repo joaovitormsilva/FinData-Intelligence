@@ -3,6 +3,8 @@ import logging
 import requests
 
 def crypto(function, digital_currency_code, market_code):
+   
+   
     key = os.getenv("ALPHA_VANTAGE_API_KEY")
    
     url = "https://www.alphavantage.co/query"

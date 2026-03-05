@@ -12,7 +12,7 @@ x-airflow-common:
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
     AIRFLOW__WEBSERVER__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://admin:admin@data_center/fin_data_db
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:$POSTGRES_PASSWORD@${POSTGRES_HOST}/${POSTGRES_DB}
     AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY}
     AIRFLOW__WEBSERVER__SECRET_KEY: ${SECRET_KEY}
     AIRFLOW__API__SECRET_KEY: ${SECRET_KEY}
@@ -27,7 +27,7 @@ x-airflow-common:
     POSTGRES_USER: ${POSTGRES_USER}
     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     POSTGRES_DB: ${POSTGRES_DB}
-    DBT_POSTGRES_HOST: data_center
+    DBT_POSTGRES_HOST: ${POSTGRES_HOST}
     DBT_POSTGRES_USER: ${POSTGRES_USER}
     DBT_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     DBT_POSTGRES_DB: ${POSTGRES_DB}
@@ -60,6 +60,8 @@ services:
   #      condition: service_healthy
 
   data_center:
+    env_file:
+      - .env
     image: postgres:17
     container_name: data_center_db
     ports:
@@ -68,11 +70,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: fin_data_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     healthcheck:
-      test: pg_isready -U admin -d fin_data_db
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
       interval: 1m30s
       timeout: 30s
       retries: 5
@@ -117,6 +119,8 @@ services:
   airflow-init:
     <<: *airflow-common
     entrypoint: /bin/bash
+    env_file:
+      - .env
     # yamllint disable rule:line-length
     command:
       - -c
@@ -201,8 +205,8 @@ services:
       <<: *airflow-common-env
       _AIRFLOW_DB_MIGRATE: 'true'
       _AIRFLOW_WWW_USER_CREATE: 'true'
-      _AIRFLOW_WWW_USER_USERNAME: airflow
-      _AIRFLOW_WWW_USER_PASSWORD: airflow
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME}
+      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
     networks:

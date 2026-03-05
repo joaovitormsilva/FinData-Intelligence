@@ -12796,3 +12796,416 @@ drop table if exists "fin_data_db"."dbt_silver"."s_aave__dbt_backup" cascade
 [0m14:10:53.496117 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa39628fa10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa395170620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fa395171460>]}
 [0m14:10:53.496996 [debug] [MainThread]: Flushing usage events
 [0m14:10:54.785136 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:51:41.878177 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f991a750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f97a9b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f97ab680>]}
+[0m16:51:41.878172 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534a0ecbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534a0efd10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534c05e1b0>]}
+
+
+============================== 16:51:41.889057 | e8a2def2-87a8-44f3-bbf0-e1529c77e1d4 ==============================
+[0m16:51:41.889057 [info ] [MainThread]: Running with dbt=1.11.6
+
+
+============================== 16:51:41.889375 | 819891e2-19cd-4665-9a77-0750e6a94f3a ==============================
+[0m16:51:41.889375 [info ] [MainThread]: Running with dbt=1.11.6
+[0m16:51:41.890885 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager', 'printer_width': '80', 'empty': 'False', 'no_print': 'None', 'invocation_command': 'dbt run --project-dir /opt/dbt --profiles-dir /opt/dbt', 'use_experimental_parser': 'False', 'use_colors': 'True', 'log_path': '/opt/dbt/logs', 'fail_fast': 'False', 'profiles_dir': '/opt/dbt', 'static_parser': 'True', 'quiet': 'False', 'log_cache_events': 'False', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'partial_parse': 'True', 'write_json': 'True', 'debug': 'False', 'target_path': 'None', 'cache_selected_only': 'False'}
+[0m16:51:41.891787 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'invocation_command': 'dbt run --project-dir /opt/dbt --profiles-dir /opt/dbt', 'no_print': 'None', 'log_format': 'default', 'target_path': 'None', 'empty': 'False', 'debug': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'warn_error': 'None', 'printer_width': '80', 'profiles_dir': '/opt/dbt', 'cache_selected_only': 'False', 'quiet': 'False', 'use_experimental_parser': 'False', 'fail_fast': 'False', 'log_path': '/opt/dbt/logs', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'version_check': 'True', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'use_colors': 'True'}
+[0m16:51:42.372891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8fb48f500>]}
+[0m16:51:42.372891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '819891e2-19cd-4665-9a77-0750e6a94f3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f53493478c0>]}
+[0m16:51:42.452456 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f922e1e0>]}
+[0m16:51:42.452803 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '819891e2-19cd-4665-9a77-0750e6a94f3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5349cb01a0>]}
+[0m16:51:42.454319 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m16:51:42.454327 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m16:51:42.552497 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m16:51:42.552538 [debug] [MainThread]: checksum: ec27062d18352e9cfca161c166fcc73d2201661a23a3cf3c89196a27f32cfcb8, vars: {}, profile: , target: , version: 1.11.6
+[0m16:51:42.759415 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:51:42.759421 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m16:51:42.760562 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m16:51:42.760956 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m16:51:42.762017 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:51:42.762926 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m16:51:42.769888 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.financas.gold
+- seeds.financas
+[0m16:51:42.773805 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 2 unused configuration paths:
+- models.financas.gold
+- seeds.financas
+[0m16:51:42.805065 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f7163d10>]}
+[0m16:51:42.809728 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '819891e2-19cd-4665-9a77-0750e6a94f3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534856bcb0>]}
+[0m16:51:42.899385 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/dbt/target/manifest.json
+[0m16:51:42.902225 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/dbt/target/manifest.json
+[0m16:51:42.904312 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/dbt/target/semantic_manifest.json
+[0m16:51:42.905720 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/dbt/target/semantic_manifest.json
+[0m16:51:43.002473 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '819891e2-19cd-4665-9a77-0750e6a94f3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5347916f30>]}
+[0m16:51:43.002545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f715db20>]}
+[0m16:51:43.003556 [info ] [MainThread]: Found 2 models, 1 source, 464 macros
+[0m16:51:43.003766 [info ] [MainThread]: Found 2 models, 1 source, 464 macros
+[0m16:51:43.004646 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '819891e2-19cd-4665-9a77-0750e6a94f3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534a585010>]}
+[0m16:51:43.004880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f715dfd0>]}
+[0m16:51:43.008342 [info ] [MainThread]: 
+[0m16:51:43.009082 [info ] [MainThread]: 
+[0m16:51:43.009582 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:51:43.010447 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:51:43.010909 [info ] [MainThread]: 
+[0m16:51:43.011560 [info ] [MainThread]: 
+[0m16:51:43.012049 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:51:43.013303 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m16:51:43.018702 [debug] [ThreadPool]: Acquiring new postgres connection 'list_fin_data_db'
+[0m16:51:43.021493 [debug] [ThreadPool]: Acquiring new postgres connection 'list_fin_data_db'
+[0m16:51:43.028108 [debug] [ThreadPool]: Acquiring new postgres connection 'list_fin_data_db'
+[0m16:51:43.032255 [debug] [ThreadPool]: Acquiring new postgres connection 'list_fin_data_db'
+[0m16:51:43.084444 [debug] [ThreadPool]: Using postgres connection "list_fin_data_db"
+[0m16:51:43.084438 [debug] [ThreadPool]: Using postgres connection "list_fin_data_db"
+[0m16:51:43.085050 [debug] [ThreadPool]: Using postgres connection "list_fin_data_db"
+[0m16:51:43.085265 [debug] [ThreadPool]: Using postgres connection "list_fin_data_db"
+[0m16:51:43.085798 [debug] [ThreadPool]: On list_fin_data_db: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "list_fin_data_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:51:43.086090 [debug] [ThreadPool]: On list_fin_data_db: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "list_fin_data_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:51:43.087175 [debug] [ThreadPool]: On list_fin_data_db: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "list_fin_data_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:51:43.087406 [debug] [ThreadPool]: On list_fin_data_db: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "list_fin_data_db"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m16:51:43.088589 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:51:43.089742 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:51:43.089157 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:51:43.090889 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:51:43.101801 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.013 seconds
+[0m16:51:43.102811 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.013 seconds
+[0m16:51:43.102422 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.012 seconds
+[0m16:51:43.103450 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.015 seconds
+[0m16:51:43.105471 [debug] [ThreadPool]: On list_fin_data_db: Close
+[0m16:51:43.108439 [debug] [ThreadPool]: On list_fin_data_db: Close
+[0m16:51:43.104959 [debug] [ThreadPool]: On list_fin_data_db: Close
+[0m16:51:43.108252 [debug] [ThreadPool]: On list_fin_data_db: Close
+[0m16:51:43.111110 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_fin_data_db, now create_fin_data_db_dbt_silver)
+[0m16:51:43.112238 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_fin_data_db, now create_fin_data_db_dbt_stg)
+[0m16:51:43.112528 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_fin_data_db, now create_fin_data_db_dbt_stg)
+[0m16:51:43.113299 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_fin_data_db, now create_fin_data_db_dbt_silver)
+[0m16:51:43.113488 [debug] [ThreadPool]: Creating schema "database: "fin_data_db"
+schema: "dbt_silver"
+"
+[0m16:51:43.114514 [debug] [ThreadPool]: Creating schema "database: "fin_data_db"
+schema: "dbt_stg"
+"
+[0m16:51:43.114705 [debug] [ThreadPool]: Creating schema "database: "fin_data_db"
+schema: "dbt_stg"
+"
+[0m16:51:43.116042 [debug] [ThreadPool]: Creating schema "database: "fin_data_db"
+schema: "dbt_silver"
+"
+[0m16:51:43.130892 [debug] [ThreadPool]: Using postgres connection "create_fin_data_db_dbt_stg"
+[0m16:51:43.124978 [debug] [ThreadPool]: Using postgres connection "create_fin_data_db_dbt_stg"
+[0m16:51:43.127000 [debug] [ThreadPool]: Using postgres connection "create_fin_data_db_dbt_silver"
+[0m16:51:43.131824 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "create_fin_data_db_dbt_stg"} */
+create schema if not exists "dbt_stg"
+[0m16:51:43.132823 [debug] [ThreadPool]: Using postgres connection "create_fin_data_db_dbt_silver"
+[0m16:51:43.133109 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "create_fin_data_db_dbt_silver"} */
+create schema if not exists "dbt_silver"
+[0m16:51:43.133756 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "create_fin_data_db_dbt_stg"} */
+create schema if not exists "dbt_stg"
+[0m16:51:43.134165 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:51:43.135131 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:51:43.134712 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "create_fin_data_db_dbt_silver"} */
+create schema if not exists "dbt_silver"
+[0m16:51:43.135798 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:51:43.137367 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:51:43.145335 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.011 seconds
+[0m16:51:43.146006 [debug] [ThreadPool]: SQL status: CREATE SCHEMA in 0.011 seconds
+[0m16:51:43.147604 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: COMMIT
+[0m16:51:43.149556 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: COMMIT
+[0m16:51:43.150861 [debug] [ThreadPool]: Using postgres connection "create_fin_data_db_dbt_stg"
+[0m16:51:43.151689 [debug] [ThreadPool]: Using postgres connection "create_fin_data_db_dbt_silver"
+[0m16:51:43.154372 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: COMMIT
+[0m16:51:43.155216 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: COMMIT
+[0m16:51:43.159570 [debug] [ThreadPool]: SQL status: COMMIT in 0.003 seconds
+[0m16:51:43.159885 [debug] [ThreadPool]: Postgres adapter: Postgres error: duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(dbt_stg) already exists.
+
+[0m16:51:43.160544 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: Close
+[0m16:51:43.161230 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: ROLLBACK
+[0m16:51:43.162908 [debug] [ThreadPool]: Postgres adapter: Postgres error: duplicate key value violates unique constraint "pg_namespace_nspname_index"
+DETAIL:  Key (nspname)=(dbt_silver) already exists.
+
+[0m16:51:43.162812 [debug] [ThreadPool]: SQL status: COMMIT in 0.006 seconds
+[0m16:51:43.164497 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: Close
+[0m16:51:43.163988 [debug] [ThreadPool]: Postgres adapter: Error running SQL: macro create_schema
+[0m16:51:43.164842 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: ROLLBACK
+[0m16:51:43.165809 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m16:51:43.167080 [debug] [ThreadPool]: On create_fin_data_db_dbt_stg: Close
+[0m16:51:43.167442 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_fin_data_db_dbt_silver, now list_fin_data_db_dbt_silver)
+[0m16:51:43.168111 [debug] [ThreadPool]: Postgres adapter: Error running SQL: macro create_schema
+[0m16:51:43.170722 [debug] [ThreadPool]: Postgres adapter: Rolling back transaction.
+[0m16:51:43.171758 [debug] [ThreadPool]: On create_fin_data_db_dbt_silver: Close
+[0m16:51:43.173111 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:51:43.174080 [debug] [MainThread]: Connection 'create_fin_data_db_dbt_silver' was properly closed.
+[0m16:51:43.168487 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_fin_data_db_dbt_stg, now list_fin_data_db_dbt_stg)
+[0m16:51:43.174921 [debug] [MainThread]: Connection 'create_fin_data_db_dbt_stg' was properly closed.
+[0m16:51:43.176208 [info ] [MainThread]: 
+[0m16:51:43.177250 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.16 seconds (0.16s).
+[0m16:51:43.179233 [error] [MainThread]: Encountered an error:
+Database Error
+  duplicate key value violates unique constraint "pg_namespace_nspname_index"
+  DETAIL:  Key (nspname)=(dbt_stg) already exists.
+[0m16:51:43.182367 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 1.378574, "process_in_blocks": "54256", "process_kernel_time": 0.536329, "process_mem_max_rss": "126148", "process_out_blocks": "3387", "process_user_time": 3.680204}
+[0m16:51:43.179812 [debug] [ThreadPool]: Using postgres connection "list_fin_data_db_dbt_silver"
+[0m16:51:43.183804 [debug] [MainThread]: Command `dbt run` failed at 16:51:43.183497 after 1.38 seconds
+[0m16:51:43.183617 [debug] [ThreadPool]: Using postgres connection "list_fin_data_db_dbt_stg"
+[0m16:51:43.184783 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534b120950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f53479ec6b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f534b6183b0>]}
+[0m16:51:43.184393 [debug] [ThreadPool]: On list_fin_data_db_dbt_silver: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "list_fin_data_db_dbt_silver"} */
+select
+      'fin_data_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_silver'
+    union all
+    select
+      'fin_data_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_silver'
+    union all
+    select
+      'fin_data_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_silver'
+  
+[0m16:51:43.186260 [debug] [MainThread]: Flushing usage events
+[0m16:51:43.185170 [debug] [ThreadPool]: On list_fin_data_db_dbt_stg: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "list_fin_data_db_dbt_stg"} */
+select
+      'fin_data_db' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'dbt_stg'
+    union all
+    select
+      'fin_data_db' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'dbt_stg'
+    union all
+    select
+      'fin_data_db' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'dbt_stg'
+  
+[0m16:51:43.187706 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:51:43.189502 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:51:43.201628 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.014 seconds
+[0m16:51:43.202390 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.013 seconds
+[0m16:51:43.204493 [debug] [ThreadPool]: On list_fin_data_db_dbt_silver: ROLLBACK
+[0m16:51:43.206436 [debug] [ThreadPool]: On list_fin_data_db_dbt_stg: ROLLBACK
+[0m16:51:43.207895 [debug] [ThreadPool]: On list_fin_data_db_dbt_silver: Close
+[0m16:51:43.208823 [debug] [ThreadPool]: On list_fin_data_db_dbt_stg: Close
+[0m16:51:43.215260 [debug] [MainThread]: Using postgres connection "master"
+[0m16:51:43.216198 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m16:51:43.218029 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:51:43.228731 [debug] [MainThread]: SQL status: SELECT 0 in 0.011 seconds
+[0m16:51:43.230328 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f55dca10>]}
+[0m16:51:43.231060 [debug] [MainThread]: On master: ROLLBACK
+[0m16:51:43.231809 [debug] [MainThread]: On master: COMMIT
+[0m16:51:43.232347 [debug] [MainThread]: Using postgres connection "master"
+[0m16:51:43.232972 [debug] [MainThread]: On master: COMMIT
+[0m16:51:43.233911 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m16:51:43.234576 [debug] [MainThread]: On master: Close
+[0m16:51:43.241981 [debug] [Thread-1 (]: Began running node model.financas.stg_null_casting
+[0m16:51:43.243902 [info ] [Thread-1 (]: 1 of 2 START sql view model dbt_stg.stg_null_casting ........................... [RUN]
+[0m16:51:43.245128 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_fin_data_db_dbt_stg, now model.financas.stg_null_casting)
+[0m16:51:43.246158 [debug] [Thread-1 (]: Began compiling node model.financas.stg_null_casting
+[0m16:51:43.254601 [debug] [Thread-1 (]: Writing injected SQL for node "model.financas.stg_null_casting"
+[0m16:51:43.258086 [debug] [Thread-1 (]: Began executing node model.financas.stg_null_casting
+[0m16:51:43.300402 [debug] [Thread-1 (]: Writing runtime sql for node "model.financas.stg_null_casting"
+[0m16:51:43.302816 [debug] [Thread-1 (]: Using postgres connection "model.financas.stg_null_casting"
+[0m16:51:43.303935 [debug] [Thread-1 (]: On model.financas.stg_null_casting: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "node_id": "model.financas.stg_null_casting"} */
+
+  create view "fin_data_db"."dbt_stg"."stg_null_casting__dbt_tmp"
+    
+    
+  as (
+    WITH testando as (
+    SELECT *
+    FROM "fin_data_db"."bronze"."precos_historicos_ativos_crypto"
+),
+
+null_clean as (
+    SELECT *
+    FROM testando
+    WHERE 
+        date IS NOT NULL AND
+        open IS NOT NULL AND
+        high IS NOT NULL AND
+        low IS NOT NULL AND
+        close IS NOT NULL AND
+        volume IS NOT NULL AND
+        dgt_crrnc_cd IS NOT NULL AND
+        mrkt_cd IS NOT NULL
+),
+
+casting as (
+    SELECT 
+        CAST(date as TIMESTAMP) as date, 
+        open,
+        high,
+        low,
+        close,
+        volume,
+        dgt_crrnc_cd,
+        mrkt_cd 
+     from null_clean
+)
+
+SELECT * FROM casting
+  );
+[0m16:51:43.305084 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:51:43.314198 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.009 seconds
+[0m16:51:43.325149 [debug] [Thread-1 (]: Using postgres connection "model.financas.stg_null_casting"
+[0m16:51:43.326196 [debug] [Thread-1 (]: On model.financas.stg_null_casting: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "node_id": "model.financas.stg_null_casting"} */
+alter table "fin_data_db"."dbt_stg"."stg_null_casting__dbt_tmp" rename to "stg_null_casting"
+[0m16:51:43.328457 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m16:51:43.350242 [debug] [Thread-1 (]: On model.financas.stg_null_casting: COMMIT
+[0m16:51:43.351155 [debug] [Thread-1 (]: Using postgres connection "model.financas.stg_null_casting"
+[0m16:51:43.352168 [debug] [Thread-1 (]: On model.financas.stg_null_casting: COMMIT
+[0m16:51:43.356349 [debug] [Thread-1 (]: SQL status: COMMIT in 0.003 seconds
+[0m16:51:43.364652 [debug] [Thread-1 (]: Applying DROP to: "fin_data_db"."dbt_stg"."stg_null_casting__dbt_backup"
+[0m16:51:43.370902 [debug] [Thread-1 (]: Using postgres connection "model.financas.stg_null_casting"
+[0m16:51:43.371812 [debug] [Thread-1 (]: On model.financas.stg_null_casting: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "node_id": "model.financas.stg_null_casting"} */
+drop view if exists "fin_data_db"."dbt_stg"."stg_null_casting__dbt_backup" cascade
+[0m16:51:43.374512 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.002 seconds
+[0m16:51:43.378041 [debug] [Thread-1 (]: On model.financas.stg_null_casting: Close
+[0m16:51:43.380858 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8fb48e660>]}
+[0m16:51:43.382168 [info ] [Thread-1 (]: 1 of 2 OK created sql view model dbt_stg.stg_null_casting ...................... [[32mCREATE VIEW[0m in 0.13s]
+[0m16:51:43.383632 [debug] [Thread-1 (]: Finished running node model.financas.stg_null_casting
+[0m16:51:43.385195 [debug] [Thread-3 (]: Began running node model.financas.s_aave
+[0m16:51:43.386458 [info ] [Thread-3 (]: 2 of 2 START sql table model dbt_silver.s_aave ................................. [RUN]
+[0m16:51:43.387799 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.financas.s_aave'
+[0m16:51:43.389013 [debug] [Thread-3 (]: Began compiling node model.financas.s_aave
+[0m16:51:43.395026 [debug] [Thread-3 (]: Writing injected SQL for node "model.financas.s_aave"
+[0m16:51:43.396979 [debug] [Thread-3 (]: Began executing node model.financas.s_aave
+[0m16:51:43.422937 [debug] [Thread-3 (]: Writing runtime sql for node "model.financas.s_aave"
+[0m16:51:43.425590 [debug] [Thread-3 (]: Using postgres connection "model.financas.s_aave"
+[0m16:51:43.426514 [debug] [Thread-3 (]: On model.financas.s_aave: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "node_id": "model.financas.s_aave"} */
+
+  
+    
+
+  create  table "fin_data_db"."dbt_silver"."s_aave__dbt_tmp"
+  
+  
+    as
+  
+  (
+    WITH aave as (
+    SELECT *
+    FROM "fin_data_db"."dbt_stg"."stg_null_casting"
+    WHERE dgt_crrnc_cd = 'AAVE'
+),
+var_preco as (
+    SELECT *,
+    (close - open) as var_dia,
+    (high - low) as var_max_dia
+    FROM aave
+)
+
+SELECT * from var_preco
+  );
+  
+[0m16:51:43.427456 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:51:43.435855 [debug] [Thread-3 (]: SQL status: SELECT 5 in 0.008 seconds
+[0m16:51:43.444240 [debug] [Thread-3 (]: Using postgres connection "model.financas.s_aave"
+[0m16:51:43.445006 [debug] [Thread-3 (]: On model.financas.s_aave: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "node_id": "model.financas.s_aave"} */
+alter table "fin_data_db"."dbt_silver"."s_aave__dbt_tmp" rename to "s_aave"
+[0m16:51:43.446311 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.000 seconds
+[0m16:51:43.448749 [debug] [Thread-3 (]: On model.financas.s_aave: COMMIT
+[0m16:51:43.449505 [debug] [Thread-3 (]: Using postgres connection "model.financas.s_aave"
+[0m16:51:43.450038 [debug] [Thread-3 (]: On model.financas.s_aave: COMMIT
+[0m16:51:43.453522 [debug] [Thread-3 (]: SQL status: COMMIT in 0.003 seconds
+[0m16:51:43.457398 [debug] [Thread-3 (]: Applying DROP to: "fin_data_db"."dbt_silver"."s_aave__dbt_backup"
+[0m16:51:43.461548 [debug] [Thread-3 (]: Using postgres connection "model.financas.s_aave"
+[0m16:51:43.462261 [debug] [Thread-3 (]: On model.financas.s_aave: /* {"app": "dbt", "dbt_version": "1.11.6", "profile_name": "financas", "target_name": "dev", "node_id": "model.financas.s_aave"} */
+drop table if exists "fin_data_db"."dbt_silver"."s_aave__dbt_backup" cascade
+[0m16:51:43.463525 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.000 seconds
+[0m16:51:43.465833 [debug] [Thread-3 (]: On model.financas.s_aave: Close
+[0m16:51:43.467111 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e8a2def2-87a8-44f3-bbf0-e1529c77e1d4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f54bc6b0>]}
+[0m16:51:43.468932 [info ] [Thread-3 (]: 2 of 2 OK created sql table model dbt_silver.s_aave ............................ [[32mSELECT 5[0m in 0.08s]
+[0m16:51:43.470380 [debug] [Thread-3 (]: Finished running node model.financas.s_aave
+[0m16:51:43.474148 [debug] [MainThread]: On master: COMMIT
+[0m16:51:43.475436 [debug] [MainThread]: Using postgres connection "master"
+[0m16:51:43.476136 [debug] [MainThread]: On master: COMMIT
+[0m16:51:43.476928 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:51:43.483078 [debug] [MainThread]: SQL status: COMMIT in 0.006 seconds
+[0m16:51:43.483879 [debug] [MainThread]: On master: Close
+[0m16:51:43.485071 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:51:43.485990 [debug] [MainThread]: Connection 'model.financas.stg_null_casting' was properly closed.
+[0m16:51:43.486896 [debug] [MainThread]: Connection 'list_fin_data_db_dbt_silver' was properly closed.
+[0m16:51:43.487919 [debug] [MainThread]: Connection 'model.financas.s_aave' was properly closed.
+[0m16:51:43.489627 [info ] [MainThread]: 
+[0m16:51:43.491169 [info ] [MainThread]: Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.48 seconds (0.48s).
+[0m16:51:43.493129 [debug] [MainThread]: Command end result
+[0m16:51:43.532657 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/dbt/target/manifest.json
+[0m16:51:43.538126 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/dbt/target/semantic_manifest.json
+[0m16:51:43.547341 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/dbt/target/run_results.json
+[0m16:51:43.548196 [info ] [MainThread]: 
+[0m16:51:43.549092 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:51:43.550537 [info ] [MainThread]: 
+[0m16:51:43.551619 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[0m16:51:43.553882 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 1.7512043, "process_in_blocks": "13112", "process_kernel_time": 0.370353, "process_mem_max_rss": "128480", "process_out_blocks": "3023", "process_user_time": 3.733387}
+[0m16:51:43.555049 [debug] [MainThread]: Command `dbt run` succeeded at 16:51:43.554836 after 1.75 seconds
+[0m16:51:43.557220 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f98d5190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f9528a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff8f9265430>]}
+[0m16:51:43.558624 [debug] [MainThread]: Flushing usage events
+[0m16:51:45.285708 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:51:45.286070 [debug] [MainThread]: An error was encountered while trying to flush usage events
