@@ -18,9 +18,9 @@ def table_create(dicionario):
     
     tb_ativo[['open','high','low','close','volume']] = tb_ativo[['open','high','low','close','volume']].astype("float") 
    
-    print("Tabela de Ativo:")
-    print(tb_ativo.head())
+
     logging.info("Tabela de Ativo:")
     logging.info(tb_ativo.head())
+
     return tb_ativo
 

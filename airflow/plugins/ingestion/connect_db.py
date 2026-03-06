@@ -6,7 +6,7 @@ def connect_pg():
     user = os.getenv('POSTGRES_USER')
     password = os.getenv('POSTGRES_PASSWORD')
     db = os.getenv('POSTGRES_DB')
-    host = "data_center"
+    host = os.getenv('POSTGRES_HOST')
 
     conn = f"postgresql+psycopg2://{user}:{password}@{host}/{db}"
 
@@ -19,4 +19,4 @@ def connect_pg():
         return engine
     except Exception as e:
         logging.error(f"Erro ao conectar ao banco de dados: {e}")
-        return None
+        return AssertionError(f"Error to connect with database {e}")
