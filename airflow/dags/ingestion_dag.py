@@ -33,6 +33,7 @@ def transform(table):
 def load(table):
     from write_db import write_to_db
     from connect_db import connect_pg
+
     connection = connect_pg()
 
     write_to_db(connection, table, "precos_historicos_ativos_crypto",["date", "dgt_crrnc_cd", "mrkt_cd"])
