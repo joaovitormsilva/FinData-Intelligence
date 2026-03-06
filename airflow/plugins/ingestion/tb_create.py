@@ -3,24 +3,20 @@ import logging
 
 
 def table_create(dicionario):
-    clean_dict = dicionario['Time Series (Digital Currency Daily)']
-    dgt_crry_cd =  dicionario['Meta Data']['2. Digital Currency Code']
-    mkt_cd = dicionario['Meta Data']['4. Market Code']
-    
-    tb_ativo = pd.DataFrame.from_dict(clean_dict,orient='index')
-    tb_ativo = tb_ativo.rename(columns={'date':'date', '1. open':'open', '2. high':'high', '3. low':'low', '4. close':'close', '5. volume':'volume'})
-    
-    tb_ativo['dgt_crrnc_cd'] = dgt_crry_cd
-    tb_ativo['mrkt_cd'] = mkt_cd
-    
-    tb_ativo.index.name = 'date'
-    tb_ativo = tb_ativo.reset_index()
-    
-    tb_ativo[['open','high','low','close','volume']] = tb_ativo[['open','high','low','close','volume']].astype("float") 
-   
+    rows = []
+    meta = dicionario['Meta Data']
+    time_series = dicionario['Time Series (Digital Currency Daily)']
 
-    logging.info("Tabela de Ativo:")
-    logging.info(tb_ativo.head())
-
-    return tb_ativo
-
+    for date, values in time_series.items():
+        row = {
+            "date": date,
+            "open": float(values['1. open']),
+            "high": float(values['2. high']),
+            "low": float(values['3. low']),
+            "close": float(values['4. close']),
+            "volume": float(values['5. volume']),
+            "dgt_crrnc_cd": meta['2. Digital Currency Code'],
+            "mrkt_cd": meta['4. Market Code']
+        }
+        rows.append(row)
+    return rows

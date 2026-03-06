@@ -28,7 +28,7 @@ default_args = {
 )
 def dbt_pipeline():
     
-    model = 'g_cast'
+   
     bsh_cmd = f'cd /opt/dbt && dbt run --project-dir {DBT_DIR} --profiles-dir {DBT_DIR}'
     task1 = BashOperator(
         task_id='test_model',

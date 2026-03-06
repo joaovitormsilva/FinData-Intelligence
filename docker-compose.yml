@@ -48,18 +48,20 @@ x-airflow-common:
       condition: service_healthy
 
 services:
-  # ingestion_service:
-  #   container_name: data_ingestion_service
-  #  env_file:
-  #    - .env
-  #  build:
-  #    context: .
-  #    dockerfile: test_etl.Dockerfile
-  #  networks:
-  #    - app_network
-  #  depends_on:
-  #    data_center:
-  #      condition: service_healthy
+  ingestion_service:
+    container_name: data_ingestion_service
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: test_etl.Dockerfile
+    networks:
+      - app_network
+    volumes:
+      - ./airflow/plugins:/app
+    depends_on:
+     data_center:
+       condition: service_healthy
 
   data_center:
     env_file:

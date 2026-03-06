@@ -10,5 +10,3 @@ dbt/logs
 airflow/config/airflow.cfg
 dbt/target
 dbt/.user.yml
-
-
