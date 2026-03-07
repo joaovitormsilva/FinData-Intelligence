@@ -4,9 +4,9 @@ from datetime import datetime
 
 @task()
 def extract():
-    from crypto_api import crypto
+    from ingestion.crypto_api import crypto
 
-    table = {'Meta Data': 
+    dicionario = {'Meta Data': 
                 {'1. Information': 
                  'Daily Prices and Volumes for Digital Currency', '2. Digital Currency Code': 'AAVE', '3. Digital Currency Name': 'Aave', '4. Market Code': 'GBP', '5. Market Name': 'British Pound Sterling', '6. Last Refreshed': '2026-02-12 00:00:00', '7. Time Zone': 'UTC'}, 'Time Series (Digital Currency Daily)':  
                  {'2026-02-12': {'1. open': '79.16000000', '2. high': '81.00000000', '3. low': '79.16000000', '4. close': '80.13000000', '5. volume': '380.28900000'}, 
@@ -17,33 +17,41 @@ def extract():
                  }
             }
     
-    # table = crypto(function="DIGITAL_CURRENCY_DAILY", digital_currency_code="AAVE", market_code="GBP")
+    # dicionario = crypto(function="DIGITAL_CURRENCY_DAILY", digital_currency_code="AAVE", market_code="GBP")
 
     
-    return table
+    return dicionario
 
 @task()
-def transform(table):
-    from tb_create import table_create
+def transform(dicionario):
+    from ingestion.tb_create import table_create
 
-    table = table_create(table)
-    return table
+    dic_transformado = table_create(dicionario)
+    return dic_transformado
 
 @task()
-def load(table):
-    from write_db import write_to_db
-    from connect_db import connect_pg
+def load_stg(dicionario):
+    from ingestion.write_stg_table import write_stg_table
+    from ingestion.connect_db import connect_pg
 
     connection = connect_pg()
 
-    write_to_db(connection, table, "precos_historicos_ativos_crypto",["date", "dgt_crrnc_cd", "mrkt_cd"])
-    
+    write_stg_table(connection, dicionario, "stg_precos_historicos_ativos_crypto")
 
 
 @task()
+def load_silver():
+    from ingestion.connect_db import connect_pg
+    from ingestion.call_procedure import call_procedure
+
+    connection = connect_pg()
+
+    call_procedure(connection)
+
+@task()
 def read_table():
-    from connect_db import connect_pg
-    from read_db import read_from_db
+    from ingestion.connect_db import connect_pg
+    from ingestion.read_db import read_from_db
     
     connection = connect_pg()
     query = "SELECT * FROM bronze.precos_historicos_ativos_crypto"
@@ -61,9 +69,9 @@ def read_table():
 )
 def teste_pipe():
     # Definindo o fluxo
-    table = extract()
-    s_table = transform(table)
-    load(s_table) >> read_table()
+    dicionario = extract()
+    dic_transformado = transform(dicionario)
+    load_stg(dic_transformado) >> load_silver() >> read_table()
 
 # Instanciação explícita
 dag_obj = teste_pipe()

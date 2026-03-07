@@ -2,6 +2,8 @@ db_password.txt
 
 docs/*
 
+airflow/plugins/ingestion/ingestion.py
+
 airflow/logs
 dbt/logs
 
@@ -12,3 +14,4 @@ dbt/target
 dbt/.user.yml
 
 
+airflow/plugins/ingestion/ingestion.py
