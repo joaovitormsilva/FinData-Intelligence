@@ -1,6 +1,0 @@
-{"timestamp":"2026-03-04T13:16:11.306161","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
-{"timestamp":"2026-03-04T13:16:11.306852","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/ingestion_dag.py","logger":"airflow.models.dagbag.DagBag"}
-{"timestamp":"2026-03-04T13:16:11.826888","level":"info","event":"Conexão bem-sucedida ao banco de dados PostgreSQL!","logger":"root"}
-{"timestamp":"2026-03-04T13:16:11.855803","level":"info","event":"Dados persistidos","logger":"root"}
-{"timestamp":"2026-03-04T13:16:11.860453","level":"info","event":"Tabela temporaria stg_precos_historicos_ativos_crypto dropada","logger":"root"}
-{"timestamp":"2026-03-04T13:16:11.861759","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}

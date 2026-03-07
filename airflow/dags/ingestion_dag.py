@@ -4,7 +4,7 @@ from datetime import datetime
 
 @task()
 def extract():
-    from crypto_api import crypto
+    from ingestion.crypto_api import crypto
 
     dicionario = {'Meta Data': 
                 {'1. Information': 
@@ -24,25 +24,34 @@ def extract():
 
 @task()
 def transform(dicionario):
-    from tb_create import table_create
+    from ingestion.tb_create import table_create
 
     dic_transformado = table_create(dicionario)
     return dic_transformado
 
 @task()
 def load_stg(dicionario):
-    from write_db import write_stg_table
-    from connect_db import connect_pg
+    from ingestion.write_stg_table import write_stg_table
+    from ingestion.connect_db import connect_pg
 
     connection = connect_pg()
 
-    write_stg_table(connection, dicionario, stg_precos_historicos_ativos_crypto")
+    write_stg_table(connection, dicionario, "stg_precos_historicos_ativos_crypto")
 
 
 @task()
+def load_silver():
+    from ingestion.connect_db import connect_pg
+    from ingestion.call_procedure import call_procedure
+
+    connection = connect_pg()
+
+    call_procedure(connection)
+
+@task()
 def read_table():
-    from connect_db import connect_pg
-    from read_db import read_from_db
+    from ingestion.connect_db import connect_pg
+    from ingestion.read_db import read_from_db
     
     connection = connect_pg()
     query = "SELECT * FROM bronze.precos_historicos_ativos_crypto"
@@ -62,7 +71,7 @@ def teste_pipe():
     # Definindo o fluxo
     dicionario = extract()
     dic_transformado = transform(dicionario)
-    load_stg(dic_transformado) >> read_table()
+    load_stg(dic_transformado) >> load_silver() >> read_table()
 
 # Instanciação explícita
 dag_obj = teste_pipe()
