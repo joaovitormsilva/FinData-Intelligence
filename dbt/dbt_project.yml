@@ -28,4 +28,5 @@ models:
 
 seeds:
   financas:
-    +schema: raw
+    btc:
+      +schema: stg

@@ -19,4 +19,5 @@ def connect_pg():
         return engine
     except Exception as e:
         logging.error(f"Erro ao conectar ao banco de dados: {e}")
-        return AssertionError(f"Error to connect with database {e}")
+        raise ConnectionError(f"Error to connect with database {e}")
+        
