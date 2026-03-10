@@ -1,6 +1,7 @@
 import logging
-from airflow.decorators import dag, task
 from datetime import datetime
+from airflow.decorators import dag, task
+from airflow.operators.bash import BashOperator
 
 @task()
 def extract():
@@ -19,7 +20,6 @@ def extract():
     
     # dicionario = crypto(function="DIGITAL_CURRENCY_DAILY", digital_currency_code="AAVE", market_code="GBP")
 
-    
     return dicionario
 
 @task()
@@ -54,24 +54,26 @@ def read_table():
     from ingestion.read_db import read_from_db
     
     connection = connect_pg()
-    query = "SELECT * FROM bronze.precos_historicos_ativos_crypto"
+    query = "SELECT * FROM bronze.precos_historicos_ativos_crypto LIMIT 5"
 
     data = read_from_db(connection, query)
-    print('Tabela no banco:')
-    print(data)
+    logging.info('Tabela no banco:')
+    logging.info(data)
 
 @dag(
-    dag_id='ingestion_dag_01',
+    dag_id='bronze_ingestion',
     schedule=None,
     start_date=datetime(2021, 1, 2),
     catchup=False,
-    tags=["raw_data_ingestion"],
+    tags=["bronze_data_ingestion"],
 )
 def teste_pipe():
     # Definindo o fluxo
     dicionario = extract()
     dic_transformado = transform(dicionario)
-    load_stg(dic_transformado) >> load_silver() >> read_table()
+
+
+    load_stg(dic_transformado) >> load_silver() >> read_table() 
 
 # Instanciação explícita
 dag_obj = teste_pipe()

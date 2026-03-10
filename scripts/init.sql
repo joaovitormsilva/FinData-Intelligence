@@ -1,5 +1,4 @@
 CREATE SCHEMA IF NOT EXISTS bronze;
-CREATE SCHEMA IF NOT EXISTS silver;
 
 CREATE TABLE bronze.precos_historicos_ativos_crypto(
     date DATE,
@@ -25,7 +24,7 @@ CREATE TABLE bronze.stg_precos_historicos_ativos_crypto(
     CONSTRAINT stg_primary_key PRIMARY KEY(date,dgt_crrnc_cd,mrkt_cd)
 );
 
-CREATE OR REPLACE PROCEDURE bronze.sp_load_historico_cryto(p_retention_days INT DEFAULT 30)
+CREATE OR REPLACE PROCEDURE bronze.sp_load_historico_crypto(p_retention_days INT DEFAULT 30)
 LANGUAGE plpgsql
 AS $$
 DECLARE 

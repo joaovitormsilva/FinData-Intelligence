@@ -1,6 +1,6 @@
 WITH testando as (
     SELECT *
-    FROM {{ source('bronze_precos_historicos_ativos_crypto', 'precos_historicos_ativos_crypto')}}
+    FROM {{ source('b_precos_historicos', 'precos_historicos_ativos_crypto')}}
 ),
 
 null_clean as (

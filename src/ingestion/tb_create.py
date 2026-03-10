@@ -3,6 +3,9 @@ import logging
 
 
 def table_create(dicionario):
+    if dicionario is None:
+        raise Exception('Dicionario recebido é nulo')
+    
     rows = []
     meta = dicionario['Meta Data']
     time_series = dicionario['Time Series (Digital Currency Daily)']

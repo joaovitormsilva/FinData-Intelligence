@@ -1,0 +1,6 @@
+sources:
+  - name: stg_btc_eur_table
+    database: fin_data_db
+    schema: dbt_stg
+    tables:
+      - name: currency_daily_btc_eur

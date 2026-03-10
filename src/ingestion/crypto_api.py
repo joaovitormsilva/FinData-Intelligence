@@ -12,7 +12,7 @@ def crypto(function, digital_currency_code, market_code):
             raise Exception('Key da API Alpha Vantage é nula')
     except Exception as e:
         logging.error(f"Erro ao pegar a chave da API: {e}")
-        return AssertionError(f'Error in get API Key {e}')
+        raise KeyError(f'Error in get API Key {e}')
 
     url = "https://www.alphavantage.co/query"
    
@@ -31,4 +31,4 @@ def crypto(function, digital_currency_code, market_code):
         return data
     else:
         logging.error(f"Failed in crypto_api function, the response in request was: {response.status_code}")
-        return AssertionError(f"Error in crypto_api function, key was use in {datetime.now()}, in endpoint {url} and result was {response}")
+        raise Exception(f"Error in crypto_api function, key was use in {datetime.now()} the status_code was {response.status_code}, in endpoint {url} and result was {response}")

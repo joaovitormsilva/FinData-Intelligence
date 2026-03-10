@@ -1,7 +1,6 @@
 WITH aave as (
     SELECT *
-    FROM {{ref('stg_null_casting')}}
-    WHERE dgt_crrnc_cd = 'AAVE'
+    FROM {{ref('precos_historicos')}}
 ),
 var_preco as (
     SELECT *,
