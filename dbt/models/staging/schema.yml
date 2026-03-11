@@ -1,0 +1,6 @@
+models:
+  - name: btc_eur
+    description: Tabela staging contém dados extraidos de um CSV sobre o valor do bitcoin no mercado EUR contém dados de 30 dias da variação de preço do bitcon no mercado EUR
+ 
+  - name: precos_historicos
+    description: Geração da view que foi criada em cima da tabela bronze precos_historico_crypto

@@ -32,6 +32,13 @@ def dbt_pipeline():
         task_id='silver_run',
         bash_command=bsh_cmd)
 
-    seed >> staging_run >> silver_run 
+    bsh_cmd = f'cd /opt/dbt && dbt test --project-dir {DBT_DIR} --profiles-dir {DBT_DIR}'
+    test_run = BashOperator(
+        task_id='test_run',
+        bash_command=bsh_cmd
+    )
+    
+    
+    seed >> staging_run >> silver_run >> test_run
  
 dbt_pipeline()
