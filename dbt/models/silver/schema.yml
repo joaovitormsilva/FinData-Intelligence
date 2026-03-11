@@ -2,13 +2,103 @@ models:
   - name: s_btc_eur
     description: A tabela contém dados de 30 dias da variação de preço do bitcon no mercado EUR
     columns:
+      - name: date
+
+      - name: open
+        data_tests:
+          - not_null
+          - is_positive
+
       - name: high
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: low
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: close
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: volume
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: dgt_crrnc_cd
+        data_tests:
+          - accepted_values:
+              name: accepted_btc_value
+              arguments:
+                values: ['BTC']
+
+      - name: mrkt_cd
+        data_tests:
+          - accepted_values:
+              name: accepted_eur_value
+              arguments:
+                values: ['EUR']
+              
+      - name: var_dia
+        data_tests:
+          - not_null
+
+      - name: var_max_dia
         data_tests:
           - not_null
 
   - name: s_precos_historicos
     description: A tabela tem dados de 30 dias da variação de preço de moedas de crypto
     columns:
+      - name: date
+
+      - name: open
+        data_tests:
+          - not_null
+          - is_positive
+
       - name: high
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: low
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: close
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: volume
+        data_tests:
+          - not_null
+          - is_positive
+
+      - name: dgt_crrnc_cd
+        data_tests:
+          - accepted_values:
+              name: accepted_aave_value
+              arguments:
+                values: ['AAVE']
+
+      - name: mrkt_cd
+        data_tests:
+          - accepted_values:
+              name: accepted_eur_value
+              arguments:
+                values: ['GBP']
+
+      - name: var_dia
+        data_tests:
+          - not_null
+
+      - name: var_max_dia
         data_tests:
           - not_null
