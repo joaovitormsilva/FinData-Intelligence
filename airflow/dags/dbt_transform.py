@@ -9,20 +9,6 @@ from airflow.decorators import dag, task
 from airflow.operators.bash import BashOperator
 
 DBT_DIR = "/opt/dbt"
-DBT_BIN = "/home/airflow/.local/bin/dbt"
-
-
-@task()
-def seeds():
-    print('1')
-
-@task()
-def models():
-    print('2')
-
-@task()
-def test():
-    logging.info('Not implement')
 
 @dag(
     dag_id="dbt_transform",
