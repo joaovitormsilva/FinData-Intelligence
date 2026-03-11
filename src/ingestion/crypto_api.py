@@ -26,7 +26,7 @@ def crypto(function, digital_currency_code, market_code):
     response = requests.get(url, params=params)
     
     if response.status_code == 200:
-        logging.info(f'A chave foi usada em {datetime.now()}, no endpoint:{url} e o resultado foi {response.json()}')
+        logging.info(f'A chave foi usada em {datetime.now()}, no endpoint:{url}')
         data = response.json()
         return data
     else:

@@ -9,20 +9,6 @@ from airflow.decorators import dag, task
 from airflow.operators.bash import BashOperator
 
 DBT_DIR = "/opt/dbt"
-DBT_BIN = "/home/airflow/.local/bin/dbt"
-
-
-@task()
-def seeds():
-    print('1')
-
-@task()
-def models():
-    print('2')
-
-@task()
-def test():
-    logging.info('Not implement')
 
 @dag(
     dag_id="dbt_transform",
@@ -46,6 +32,13 @@ def dbt_pipeline():
         task_id='silver_run',
         bash_command=bsh_cmd)
 
-    seed >> staging_run >> silver_run 
+    bsh_cmd = f'cd /opt/dbt && dbt test --project-dir {DBT_DIR} --profiles-dir {DBT_DIR}'
+    test_run = BashOperator(
+        task_id='test_run',
+        bash_command=bsh_cmd
+    )
+    
+    
+    seed >> staging_run >> silver_run >> test_run
  
 dbt_pipeline()

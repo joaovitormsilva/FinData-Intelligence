@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 from airflow.decorators import dag, task
 from airflow.operators.bash import BashOperator
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
 @task()
 def extract():
@@ -62,18 +63,20 @@ def read_table():
 
 @dag(
     dag_id='bronze_ingestion',
-    schedule=None,
-    start_date=datetime(2021, 1, 2),
+    schedule='@Daily',
     catchup=False,
     tags=["bronze_data_ingestion"],
 )
 def teste_pipe():
     # Definindo o fluxo
-    dicionario = extract()
-    dic_transformado = transform(dicionario)
+    trigger_next_dag = TriggerDagRunOperator(
+        task_id = "trigger_next_dag",
+        trigger_dag_id = "dbt_transform",
+        wait_for_completion=True
+    )
 
+    load_stg(transform(extract())) >> load_silver() >> read_table() >> trigger_next_dag 
 
-    load_stg(dic_transformado) >> load_silver() >> read_table() 
 
 # Instanciação explícita
 dag_obj = teste_pipe()

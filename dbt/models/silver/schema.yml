@@ -1,0 +1,14 @@
+models:
+  - name: s_btc_eur
+    description: A tabela contém dados de 30 dias da variação de preço do bitcon no mercado EUR
+    columns:
+      - name: high
+        data_tests:
+          - not_null
+
+  - name: s_precos_historicos
+    description: A tabela tem dados de 30 dias da variação de preço de moedas de crypto
+    columns:
+      - name: high
+        data_tests:
+          - not_null

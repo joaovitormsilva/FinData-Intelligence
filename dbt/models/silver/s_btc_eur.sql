@@ -1,11 +1,12 @@
-SELECT
-    timestamp AS date,
-    open,
-    high,
-    low,
-    close,
-    'BTC'AS dgt_crrnc_cd,
-    'EUR' AS mrkt_cd
-FROM {{ source('stg_btc_eur_table', 'currency_daily_btc_eur') }}
+WITH btc_eur AS(
+    SELECT *
+    FROM {{ ref('btc_eur') }}
+),
+btc_eur_preco AS(
+    SELECT *,
+    (close - open) as var_dia,
+    (high - low) as var_max_dia
+    FROM btc_eur
+)
 
-
+SELECT * FROM btc_eur_preco
