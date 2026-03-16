@@ -4,6 +4,17 @@ from airflow.decorators import dag, task
 from airflow.operators.bash import BashOperator
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
+
+def task_execute_callback(context):
+    logging.info(f"Task has begun execution, task_instance_key_str:{context.get('task_instance').task_id}")
+
+def dag_succes_alert(context):
+    logging.info(f'Dag has succeeded, run_id: {context.get('task_instance').dag_id}')
+
+def dag_failure_alert(context):
+    logging.error(f'Dag has failed,run_id {context.get('task_instance').dag_id}')
+
+
 @task()
 def extract():
     from ingestion.crypto_api import crypto
@@ -19,7 +30,7 @@ def extract():
                  }
             }
     
-    # dicionario = crypto(function="DIGITAL_CURRENCY_DAILY", digital_currency_code="AAVE", market_code="GBP")
+    dicionario = crypto(function="DIGITAL_CURRENCY_DAILY", digital_currency_code="AAVE", market_code="GBP")
 
     return dicionario
 
@@ -41,7 +52,7 @@ def load_stg(dicionario):
 
 
 @task()
-def load_silver():
+def load_bronze():
     from ingestion.connect_db import connect_pg
     from ingestion.call_procedure import call_procedure
 
@@ -49,7 +60,7 @@ def load_silver():
 
     call_procedure(connection)
 
-@task()
+@task(task_id='read_table',on_success_callback=[task_execute_callback])
 def read_table():
     from ingestion.connect_db import connect_pg
     from ingestion.read_db import read_from_db
@@ -65,17 +76,19 @@ def read_table():
     dag_id='bronze_ingestion',
     schedule='@Daily',
     catchup=False,
-    tags=["bronze_data_ingestion"],
+    on_success_callback=dag_succes_alert,
+    on_failure_callback=dag_failure_alert,
+    tags=["bronze_data_ingestion"]
 )
 def teste_pipe():
     # Definindo o fluxo
     trigger_next_dag = TriggerDagRunOperator(
         task_id = "trigger_next_dag",
         trigger_dag_id = "dbt_transform",
-        wait_for_completion=True
+        wait_for_completion=False
     )
 
-    load_stg(transform(extract())) >> load_silver() >> read_table() >> trigger_next_dag 
+    load_stg(transform(extract())) >> load_bronze() >> read_table() >> trigger_next_dag 
 
 
 # Instanciação explícita

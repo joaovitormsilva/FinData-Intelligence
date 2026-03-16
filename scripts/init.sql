@@ -1,5 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS bronze;
 
+CREATE DATABASE metabase_db;
+
 CREATE TABLE bronze.precos_historicos_ativos_crypto(
     date DATE,
     open numeric,
