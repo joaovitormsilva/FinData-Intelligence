@@ -31,4 +31,4 @@ def crypto(function, digital_currency_code, market_code):
         return data
     else:
         logging.error(f"Failed in crypto_api function, the response in request was: {response.status_code}")
-        raise Exception(f"Error in crypto_api function, key was use in {datetime.now()} the status_code was {response.status_code}, in endpoint {url} and result was {response}")
+        raise Exception(f"Error in crypto_api function, key was use in {datetime.now()} the status_code was {response.status_code}, in endpoint {url}")

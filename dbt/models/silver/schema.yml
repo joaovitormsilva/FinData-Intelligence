@@ -3,7 +3,10 @@ models:
     description: A tabela contém dados de 30 dias da variação de preço do bitcon no mercado EUR
     columns:
       - name: date
-
+        data_tests:
+          - unique
+          - not_null
+          
       - name: open
         data_tests:
           - not_null
@@ -55,6 +58,9 @@ models:
     description: A tabela tem dados de 30 dias da variação de preço de moedas de crypto
     columns:
       - name: date
+        data_tests:
+          - unique
+          - not_null
 
       - name: open
         data_tests:
